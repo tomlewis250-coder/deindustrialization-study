@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The True Cost of Deindustrialization | County-Level Analysis</title>
+    <meta name="description" content="Comprehensive analysis of how manufacturing job losses affected prime-age employment, wages, and economic wellbeing across 3,200+ U.S. counties.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #c53030;
+            --accent-light: #fc8181;
+            --success: #276749;
+            --warning: #c05621;
+            --bg-light: #f7fafc;
+            --bg-dark: #1a202c;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: #fff;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #edf2f7;
+            padding: 8rem 0 5rem;
+            margin-top: 60px;
+            border-bottom: 4px solid #1a365d;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            color: #1a365d;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: #4a5568;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #cbd5e0;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            color: #c53030;
+        }
+
+        .hero-stat .label {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Key Findings Cards */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .finding-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .finding-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .finding-card .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .finding-card .icon.red { background: #fed7d7; color: var(--accent); }
+        .finding-card .icon.blue { background: #bee3f8; color: var(--primary); }
+        .finding-card .icon.green { background: #c6f6d5; color: var(--success); }
+        .finding-card .icon.orange { background: #feebc8; color: var(--warning); }
+
+        .finding-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .finding-card .stat {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .finding-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Chart Sections */
+        .chart-section {
+            margin-bottom: 4rem;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .chart-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .chart-description {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .chart-description h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .two-col.reverse {
+            direction: rtl;
+        }
+
+        .two-col.reverse > * {
+            direction: ltr;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        .data-table .negative {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .data-table .positive {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* Callout Box */
+        .callout {
+            background-color: #ebf8ff;
+            border: 2px solid #1a365d;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .callout h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a365d;
+        }
+
+        .callout p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #2d3748;
+        }
+
+        /* Story Timeline */
+        .story-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .story-step {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .story-step::after {
+            content: '\f061';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .story-step:last-child::after {
+            display: none;
+        }
+
+        .story-step .step-num {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin: 0 auto 1rem;
+        }
+
+        .story-step h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-step p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Methodology */
+        .methodology {
+            background-color: #edf2f7;
+            padding: 4rem 0;
+            border-top: 4px solid #1a365d;
+        }
+
+        .methodology h2 {
+            color: #1a365d;
+        }
+
+        .methodology p {
+            color: #4a5568;
+        }
+
+        .data-sources {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .data-source {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .data-source h4 {
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-source p {
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .findings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .story-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .story-step::after {
+                display: none;
+            }
+
+            .data-sources {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+
+        /* Image Gallery */
+        .chart-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .chart-gallery .chart-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .chart-gallery .chart-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .chart-gallery .chart-item img:hover {
+            transform: scale(1.02);
+        }
+
+        .chart-gallery .chart-item .caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Full Story Image */
+        .full-story-image {
+            margin: 2rem 0;
+        }
+
+        .full-story-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo"><i class="fas fa-industry"></i> Deindustrialization Study</div>
+            <ul>
+                <li><a href="#findings">Key Findings</a></li>
+                <li><a href="#story">The Story</a></li>
+                <li><a href="#wages">Wage Analysis</a></li>
+                <li><a href="#labor">Labor Force</a></li>
+                <li><a href="#economic-chain">Full Economic Chain</a></li>
+                <li><a href="#states">By State</a></li>
+                <li><a href="#data">Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>The True Cost of Deindustrialization</h1>
+            <p class="subtitle">A comprehensive county-level analysis of how manufacturing job losses affected wages, employment, and economic wellbeing across America.</p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="number">4.6M</span>
+                    <span class="label">Manufacturing Jobs Lost</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">3,281</span>
+                    <span class="label">Counties Analyzed</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">$743</span>
+                    <span class="label">Weekly Wage Gap</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">-26%</span>
+                    <span class="label">Median Mfg Job Decline</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section id="findings">
+        <div class="container">
+            <div class="section-header">
+                <h2>Key Findings</h2>
+                <p>The data reveals that deindustrialization didn't just eliminate jobs - it eliminated <em>good</em> jobs, with lasting consequences for affected communities.</p>
+            </div>
+
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="icon red"><i class="fas fa-arrow-down"></i></div>
+                    <h3>Manufacturing Decline</h3>
+                    <div class="stat">-26%</div>
+                    <p>Median county lost over a quarter of manufacturing jobs since 2000. 568 counties lost more than half.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon blue"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>Wage Premium Lost</h3>
+                    <div class="stat">$38,636</div>
+                    <p>Annual income loss per worker who switches from manufacturing to lower-wage replacement industries.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon orange"><i class="fas fa-user-slash"></i></div>
+                    <h3>Labor Force Dropout</h3>
+                    <div class="stat">-6.3pp</div>
+                    <p>Severely deindustrialized counties have 6.3 percentage points lower labor force participation.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon red"><i class="fas fa-home"></i></div>
+                    <h3>Higher Poverty</h3>
+                    <div class="stat">16.9%</div>
+                    <p>Poverty rate in severely deindustrialized counties vs. 11.8% in counties with manufacturing growth.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon blue"><i class="fas fa-money-bill-wave"></i></div>
+                    <h3>Income Gap</h3>
+                    <div class="stat">$13,000</div>
+                    <p>Median household income is $13,000 lower in severely deindustrialized counties.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon green"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Education Barrier</h3>
+                    <div class="stat">18.6%</div>
+                    <p>Bachelor's degree rate in severe decline counties vs. 23.4% in manufacturing growth counties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Complete Story -->
+    <section id="story" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Complete Story</h2>
+                <p>From decline to replacement to economic distress - how deindustrialization reshaped America's counties.</p>
+            </div>
+
+            <div class="story-flow">
+                <div class="story-step">
+                    <div class="step-num">1</div>
+                    <h4>The Decline</h4>
+                    <p>Manufacturing jobs disappeared from most U.S. counties between 2000-2023.</p>
+                </div>
+                <div class="story-step">
+                    <div class="step-num">2</div>
+                    <h4>The Replacement</h4>
+                    <p>Healthcare, services, and leisure jobs partially filled the gap.</p>
+                </div>
+                <div class="story-step">
+                    <div class="step-num">3</div>
+                    <h4>The Wage Gap</h4>
+                    <p>But replacement jobs pay significantly less than manufacturing.</p>
+                </div>
+                <div class="story-step">
+                    <div class="step-num">4</div>
+                    <h4>The Fallout</h4>
+                    <p>Lower incomes, higher poverty, workers leaving the labor force.</p>
+                </div>
+            </div>
+
+            <div class="full-story-image">
+                <img src="images/06_the_complete_story.png" alt="The Complete Story of Deindustrialization">
+            </div>
+        </div>
+    </section>
+
+    <!-- Wage Analysis -->
+    <section id="wages">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Wage Premium Problem</h2>
+                <p>Manufacturing jobs paid well above average. The industries that replaced them don't.</p>
+            </div>
+
+            <div class="chart-container">
+                <img src="images/01_wage_premium_analysis.png" alt="Manufacturing Wage Premium Analysis">
+            </div>
+
+            <div class="callout">
+                <h3>Manufacturing pays $1,125/week</h3>
+                <p>That's nearly 3x the $382/week average in leisure and hospitality - one of the fastest growing replacement sectors. When a manufacturing worker loses their job and finds work in food service, their family loses over $38,000 in annual income.</p>
+            </div>
+
+            <div class="chart-container" style="margin-top: 3rem;">
+                <img src="images/02_industry_replacement.png" alt="Industry Replacement Analysis">
+            </div>
+
+            <div class="chart-description">
+                <h4>What Replaced Manufacturing?</h4>
+                <p>Healthcare and education grew by nearly 3 percentage points of employment share, while manufacturing fell by over 4 points. But healthcare support jobs (CNAs, medical assistants) and food service don't offer the same wages, benefits, or stability as factory jobs did.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Labor Force -->
+    <section id="labor" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Workers Leaving the Labor Force</h2>
+                <p>Many displaced workers didn't find new jobs - they stopped looking entirely.</p>
+            </div>
+
+            <div class="chart-container">
+                <img src="images/03_labor_force_participation.png" alt="Labor Force Participation Analysis">
+            </div>
+
+            <div class="two-col" style="margin-top: 3rem;">
+                <div>
+                    <h3>The Dropout Effect</h3>
+                    <p>Labor force participation declined across most of America, but the drop was steeper in deindustrialized counties. Workers who lost manufacturing jobs - especially older workers with industry-specific skills - often couldn't find comparable work and eventually stopped looking.</p>
+                    <br>
+                    <p>Counties with severe manufacturing decline now have only <strong>55% labor force participation</strong>, compared to <strong>61%</strong> in counties where manufacturing grew. That's hundreds of thousands of prime-age workers sitting on the sidelines.</p>
+                </div>
+                <div class="chart-container">
+                    <img src="images/03_scatter_mfg_vs_employment.png" alt="Manufacturing vs Employment Scatter">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economic Distress -->
+    <section id="distress">
+        <div class="container">
+            <div class="section-header">
+                <h2>Economic Distress</h2>
+                <p>The consequences show up in poverty rates, income levels, and community wellbeing.</p>
+            </div>
+
+            <div class="chart-container">
+                <img src="images/04_economic_distress.png" alt="Economic Distress Analysis">
+            </div>
+
+            <div class="two-col" style="margin-top: 3rem;">
+                <div class="chart-container">
+                    <img src="images/02_category_comparison.png" alt="Category Comparison">
+                </div>
+                <div>
+                    <h3>Comparing County Categories</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Severe Decline</th>
+                                <th>Mfg Growth</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Counties</td>
+                                <td>568</td>
+                                <td>691</td>
+                            </tr>
+                            <tr>
+                                <td>LFP Rate</td>
+                                <td class="negative">55.0%</td>
+                                <td class="positive">61.3%</td>
+                            </tr>
+                            <tr>
+                                <td>Poverty Rate</td>
+                                <td class="negative">16.9%</td>
+                                <td class="positive">11.8%</td>
+                            </tr>
+                            <tr>
+                                <td>Median Income</td>
+                                <td class="negative">$53,000</td>
+                                <td class="positive">$66,000</td>
+                            </tr>
+                            <tr>
+                                <td>Bachelor's %</td>
+                                <td class="negative">18.6%</td>
+                                <td class="positive">23.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- State Analysis -->
+    <section id="states" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>State-by-State Analysis</h2>
+                <p>Manufacturing decline varied dramatically by state, as did the economic consequences.</p>
+            </div>
+
+            <div class="chart-container">
+                <img src="images/05_state_analysis.png" alt="State Analysis">
+            </div>
+
+            <div class="chart-gallery" style="margin-top: 3rem;">
+                <div class="chart-item">
+                    <img src="images/07_state_mfg_change.png" alt="State Manufacturing Change">
+                    <div class="caption">Average manufacturing employment change by state (2000-2023)</div>
+                </div>
+                <div class="chart-item">
+                    <img src="images/05_top_losing_counties.png" alt="Top Losing Counties">
+                    <div class="caption">Top 20 counties by absolute manufacturing job losses</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Economic Chain Analysis -->
+    <section id="economic-chain">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Full Economic Chain</h2>
+                <p>New analysis: Tracing the complete impact from factory floors to economic distress using 7 federal data sources.</p>
+            </div>
+
+            <div class="callout" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; margin-bottom: 3rem;">
+                <h3 style="color: white;">Manufacturing Decline <i class="fas fa-arrow-right"></i> Job Loss <i class="fas fa-arrow-right"></i> Business Decline <i class="fas fa-arrow-right"></i> Wealth Loss <i class="fas fa-arrow-right"></i> Economic Distress</h3>
+                <p style="opacity: 0.9;">This comprehensive analysis merges employment data, business establishment counts, home values, bank branch access, poverty rates, unemployment, and internet connectivity to trace the full chain of deindustrialization's impact.</p>
+            </div>
+
+            <div class="chart-container">
+                <img src="images/economic_chain_overview.png" alt="The Deindustrialization Chain: Complete Economic Analysis">
+            </div>
+
+            <div class="chart-description">
+                <h4>Six Dimensions of Economic Impact</h4>
+                <p>This visualization shows how manufacturing decline correlates with factory closures, slower home value growth, reduced bank branch access, higher poverty rates, and digital divide. Counties that lost the most manufacturing jobs now face compounding economic challenges across multiple dimensions.</p>
+            </div>
+
+            <div class="chart-container" style="margin-top: 3rem;">
+                <img src="images/quintile_comparison.png" alt="Economic Outcomes by Deindustrialization Severity">
+            </div>
+
+            <div class="chart-description">
+                <h4>Outcomes by Severity of Manufacturing Loss</h4>
+                <p>When we group counties by how severely they were affected by deindustrialization, the patterns become stark. The "Severe Decline" counties - those that lost 40% or more of manufacturing jobs - now have significantly worse outcomes across all economic measures compared to counties where manufacturing grew.</p>
+            </div>
+
+            <div class="two-col" style="margin-top: 3rem;">
+                <div class="chart-container">
+                    <img src="images/national_mfg_trend.png" alt="National Manufacturing Employment Trend">
+                    <div class="caption">National manufacturing employment declined by over 5 million jobs (2000-2023)</div>
+                </div>
+                <div class="chart-container">
+                    <img src="images/correlation_matrix.png" alt="Economic Indicators Correlation Matrix">
+                    <div class="caption">How economic indicators correlate with manufacturing decline</div>
+                </div>
+            </div>
+
+            <div class="chart-container" style="margin-top: 3rem;">
+                <img src="images/summary_statistics.png" alt="Summary Statistics by Deindustrialization Quintile">
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Analysis -->
+    <section id="original" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Manufacturing & Prime-Age Employment</h2>
+                <p>The original analysis examining the direct relationship between manufacturing decline and employment.</p>
+            </div>
+
+            <div class="chart-gallery">
+                <div class="chart-item">
+                    <img src="images/01_mfg_change_distribution.png" alt="Manufacturing Change Distribution">
+                    <div class="caption">Distribution of manufacturing job changes across U.S. counties</div>
+                </div>
+                <div class="chart-item">
+                    <img src="images/04_mfg_employment_time_series.png" alt="Manufacturing Time Series">
+                    <div class="caption">U.S. manufacturing employment over time with key events marked</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data & Methodology -->
+    <section id="data" class="methodology">
+        <div class="container">
+            <div class="section-header">
+                <h2>Data & Methodology</h2>
+                <p>This comprehensive analysis integrates 7 federal data sources covering over 3,200 U.S. counties.</p>
+            </div>
+
+            <div class="data-sources" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div class="data-source">
+                    <h4><i class="fas fa-building"></i> BLS QCEW</h4>
+                    <p>Quarterly Census of Employment and Wages provides county-level employment and wage data by industry from 2000-2023.</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-users"></i> Census ACS</h4>
+                    <p>American Community Survey provides labor force participation, income, poverty, education, and internet access data.</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-store"></i> County Business Patterns</h4>
+                    <p>Census Bureau data on business establishment counts by industry and county (2000, 2021).</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-home"></i> Zillow ZHVI</h4>
+                    <p>Home Value Index tracks median home values by county from 2000-2024.</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-university"></i> FDIC Summary of Deposits</h4>
+                    <p>Bank branch locations and deposits by county, tracking financial access over time.</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-chart-line"></i> USDA ERS</h4>
+                    <p>County-level poverty rates, unemployment, and educational attainment from Economic Research Service.</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-briefcase"></i> SBA Loan Data</h4>
+                    <p>Small Business Administration 7(a) loan records by location from 2000-2025.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <p style="font-size: 0.9rem; opacity: 0.7;">
+                    <strong>Total Data:</strong> Nearly 1GB of federal economic data merged at county level<br>
+                    <strong>Time Period:</strong> 2000-2023 for most indicators<br>
+                    <strong>Counties Analyzed:</strong> 2,702 counties with complete manufacturing data<br>
+                    <strong>Analysis:</strong> Python (pandas, matplotlib, seaborn) - all code available upon request
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>The True Cost of Deindustrialization</strong></p>
+            <p>A comprehensive county-level analysis of manufacturing decline and economic wellbeing</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">
+                Data sources: BLS QCEW, Census ACS, County Business Patterns, Zillow ZHVI, FDIC SOD, USDA ERS, SBA Loans<br>
+                Analysis completed February 2026
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.scroll-top');
+            if (window.scrollY > 500) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
