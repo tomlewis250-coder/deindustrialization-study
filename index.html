@@ -570,8 +570,8 @@
                 <li><a href="#maps">Maps</a></li>
                 <li><a href="#china-shock">China Shock</a></li>
                 <li><a href="#rust-belt">Rust Belt</a></li>
+                <li><a href="#regression">Statistics</a></li>
                 <li><a href="#story">The Story</a></li>
-                <li><a href="#wages">Wages</a></li>
                 <li><a href="#data">Data</a></li>
             </ul>
         </div>
@@ -1054,6 +1054,46 @@
                 <div class="chart-item">
                     <img loading="lazy" src="images/04_mfg_employment_time_series.jpg" alt="Manufacturing Time Series">
                     <div class="caption">U.S. manufacturing employment over time with key events marked</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regression Analysis -->
+    <section id="regression" style="background: linear-gradient(180deg, #edf2f7 0%, #e2e8f0 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Statistical Analysis</h2>
+                <p>Formal regression analysis confirms the relationship between manufacturing decline and economic outcomes.</p>
+            </div>
+
+            <div class="callout" style="background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); color: white; margin-bottom: 3rem;">
+                <h3 style="color: white;"><i class="fas fa-chart-line"></i> The Numbers Don't Lie</h3>
+                <p style="color: rgba(255,255,255,0.95);">Using OLS regression with robust standard errors, we find statistically significant relationships between manufacturing decline and poverty, income, and unemployment - even after controlling for education levels and baseline economic conditions.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/regression_analysis.jpg" alt="Regression Analysis - Manufacturing Decline Impact on Economic Outcomes">
+            </div>
+
+            <div class="chart-description">
+                <h4>Key Statistical Findings</h4>
+                <p>The coefficient plot (top left) shows the effect of a 1 percentage point decline in manufacturing employment on each outcome. All relationships are statistically significant (p<0.05) after controlling for education and baseline unemployment. The scatter plots show the raw relationships, while the binned scatter provides a cleaner visualization of the gradient from manufacturing growth to decline.</p>
+            </div>
+
+            <div class="two-col" style="margin-top: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #1a365d; margin-bottom: 1rem;"><i class="fas fa-calculator"></i> Methodology</h3>
+                    <ul style="color: #4a5568; line-height: 1.8;">
+                        <li><strong>Model:</strong> Ordinary Least Squares (OLS)</li>
+                        <li><strong>Standard Errors:</strong> Heteroskedasticity-robust (HC3)</li>
+                        <li><strong>Controls:</strong> % Bachelor's degree, Unemployment rate (2000)</li>
+                        <li><strong>Sample:</strong> 2,624 U.S. counties with complete data</li>
+                    </ul>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #1a365d; margin-bottom: 1rem;"><i class="fas fa-exclamation-triangle"></i> Interpretation</h3>
+                    <p style="color: #4a5568; line-height: 1.8;">These regressions show <strong>correlation</strong>, not definitive causation. However, combined with the <a href="#china-shock" style="color: #c53030;">China Shock analysis</a> (which uses exogenous trade exposure as a quasi-natural experiment), the evidence strongly suggests manufacturing decline <em>caused</em> these negative outcomes.</p>
                 </div>
             </div>
         </div>
