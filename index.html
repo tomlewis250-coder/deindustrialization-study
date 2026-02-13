@@ -572,6 +572,7 @@
                 <li><a href="#rust-belt">Rust Belt</a></li>
                 <li><a href="#population">Population</a></li>
                 <li><a href="#business-dynamics">Business</a></li>
+                <li><a href="#hardship">Hardship</a></li>
                 <li><a href="#regression">Statistics</a></li>
                 <li><a href="#data">Data</a></li>
             </ul>
@@ -1192,6 +1193,55 @@
         </div>
     </section>
 
+    <!-- Economic Hardship -->
+    <section id="hardship" style="background: linear-gradient(180deg, #fffaf0 0%, #feebc8 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Economic Hardship</h2>
+                <p>SNAP participation and disability rates reveal the human toll of deindustrialization.</p>
+            </div>
+
+            <div class="callout" style="background: linear-gradient(135deg, #dd6b20 0%, #c05621 100%); color: white; margin-bottom: 3rem;">
+                <h3 style="color: white;"><i class="fas fa-hand-holding-heart"></i> The Safety Net Under Strain</h3>
+                <p style="color: rgba(255,255,255,0.95);">Counties with severe manufacturing decline have <strong>6.4 percentage points higher</strong> SNAP participation (17.4% vs 11.0%) and <strong>3.6 percentage points higher</strong> disability rates (18.4% vs 14.8%). When good jobs disappear, families turn to government assistance to survive.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/economic_hardship.jpg" alt="Economic Hardship - SNAP and Disability Rates by Manufacturing Change">
+            </div>
+
+            <div class="chart-description">
+                <h4>The Evidence of Economic Distress</h4>
+                <p>Both SNAP participation and disability rates show negative correlations with manufacturing employment change. As factories closed, more families needed food assistance and more workers left the labor force through disability. These are not random patterns - they follow the geography of deindustrialization.</p>
+            </div>
+
+            <div class="chart-container" style="margin-top: 3rem;">
+                <img loading="lazy" src="images/hardship_comparison.jpg" alt="Hardship Comparison - Growth vs Decline Counties">
+            </div>
+
+            <div class="two-col" style="margin-top: 3rem;">
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #dd6b20; margin-bottom: 1rem;"><i class="fas fa-utensils"></i> SNAP (Food Stamps)</h3>
+                    <ul style="color: #4a5568; line-height: 1.8;">
+                        <li><strong>17.4%</strong> of households in severe decline counties receive SNAP</li>
+                        <li><strong>11.0%</strong> in manufacturing growth counties</li>
+                        <li>Correlation with mfg decline: <strong>r = -0.15</strong></li>
+                        <li>More families can't afford food without assistance</li>
+                    </ul>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                    <h3 style="color: #805ad5; margin-bottom: 1rem;"><i class="fas fa-wheelchair"></i> Disability</h3>
+                    <ul style="color: #4a5568; line-height: 1.8;">
+                        <li><strong>18.4%</strong> disability rate in severe decline counties</li>
+                        <li><strong>14.8%</strong> in manufacturing growth counties</li>
+                        <li>Correlation with mfg decline: <strong>r = -0.19</strong></li>
+                        <li>Workers exit labor force through disability claims</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Data & Methodology -->
     <section id="data" class="methodology">
         <div class="container">
@@ -1236,6 +1286,14 @@
                 <div class="data-source">
                     <h4><i class="fas fa-rocket"></i> Business Dynamics Statistics</h4>
                     <p>Census BDS provides firm births, deaths, job creation/destruction by county from 1978-2022.</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-utensils"></i> SNAP Participation</h4>
+                    <p>Census ACS table S2201 provides county-level food assistance participation rates (2012-2022).</p>
+                </div>
+                <div class="data-source">
+                    <h4><i class="fas fa-wheelchair"></i> Disability Rates</h4>
+                    <p>Census ACS table S1810 provides county-level disability statistics (2012-2022).</p>
                 </div>
             </div>
 
