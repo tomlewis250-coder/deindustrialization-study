@@ -554,11 +554,10 @@
             <ul>
                 <li><a href="#findings">Key Findings</a></li>
                 <li><a href="#maps">Maps</a></li>
+                <li><a href="#china-shock">China Shock</a></li>
                 <li><a href="#rust-belt">Rust Belt</a></li>
                 <li><a href="#story">The Story</a></li>
                 <li><a href="#wages">Wages</a></li>
-                <li><a href="#economic-chain">Economic Chain</a></li>
-                <li><a href="#states">By State</a></li>
                 <li><a href="#data">Data</a></li>
             </ul>
         </div>
@@ -653,6 +652,15 @@
                 <p>County-level maps reveal the geographic concentration of manufacturing loss and its consequences.</p>
             </div>
 
+            <!-- Interactive Map CTA -->
+            <div style="background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); padding: 2rem; border-radius: 12px; text-align: center; margin-bottom: 3rem;">
+                <h3 style="color: white; margin-bottom: 1rem;"><i class="fas fa-mouse-pointer"></i> Explore the Interactive Map</h3>
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 1.5rem;">Hover over any county to see manufacturing change, poverty rates, and more.</p>
+                <a href="interactive_map.html" target="_blank" style="display: inline-block; background: white; color: #1a365d; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: transform 0.2s;">
+                    <i class="fas fa-map-marked-alt"></i> Open Interactive Map
+                </a>
+            </div>
+
             <div class="chart-container">
                 <img src="images/map_manufacturing_change.png" alt="Manufacturing Employment Change by County 2000-2023" style="width: 100%;">
             </div>
@@ -689,6 +697,44 @@
                     <img src="images/map_home_value_change.png" alt="Home Value Change by County" style="width: 100%;">
                     <div class="caption">Home value growth 2000-2023 - deindustrialized areas lagged behind</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- China Shock Section -->
+    <section id="china-shock" style="background: linear-gradient(180deg, #fff5f5 0%, #fed7d7 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h2>The China Shock</h2>
+                <p>How China's entry into the WTO in 2001 accelerated America's manufacturing decline.</p>
+            </div>
+
+            <div class="callout" style="background: linear-gradient(135deg, #DE2910 0%, #8B0000 100%); color: white; margin-bottom: 3rem;">
+                <h3 style="color: white;">December 11, 2001: The Day Everything Changed</h3>
+                <p style="color: rgba(255,255,255,0.95);">When China joined the World Trade Organization, U.S. imports from China surged from $100 billion to over $400 billion annually. Research by economists Autor, Dorn, and Hanson shows this "China Shock" had devastating effects on American manufacturing communities.</p>
+            </div>
+
+            <div class="chart-container">
+                <img src="images/china_shock_analysis.png" alt="China Shock Analysis - Trade Exposure vs Manufacturing Decline">
+            </div>
+
+            <div class="chart-description">
+                <h4>The Causal Connection</h4>
+                <p>Counties with higher exposure to Chinese import competition experienced significantly greater manufacturing job losses. The correlation is clear: trade policy had real consequences for American workers. Counties in the top quintile of China shock exposure lost manufacturing jobs at nearly twice the rate of those in the bottom quintile.</p>
+            </div>
+
+            <div class="chart-container" style="margin-top: 3rem;">
+                <img src="images/china_shock_summary.png" alt="China Shock Summary - Import Surge and Statistics">
+            </div>
+
+            <div class="chart-description">
+                <h4>By the Numbers</h4>
+                <p>U.S. imports from China increased 4x between 2000 and 2015. High-exposure counties not only lost more manufacturing jobs, they now have higher poverty rates. The effects persist two decades later - this wasn't just a temporary adjustment, it was a permanent restructuring of the American economy.</p>
+            </div>
+
+            <div class="callout" style="background: #ebf8ff; border: 2px solid #1a365d;">
+                <h3 style="color: #1a365d;">Data Source</h3>
+                <p>China shock exposure data from <strong>Autor, Dorn & Hanson</strong> - "The China Syndrome" (AER, 2013) and "On the Persistence of the China Shock" (Brookings Papers, 2021). Commuting zone trade exposure merged with our county-level analysis.</p>
             </div>
         </div>
     </section>
