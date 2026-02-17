@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federal Reserve Data | The True Cost of Deindustrialization</title>
+    <meta name="description" content="Comprehensive analysis of Federal Reserve manufacturing data including FRED, Philadelphia Fed, NY Fed, and regional surveys.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo"><i class="fas fa-industry"></i> Deindustrialization Study</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="analysis.html">Analysis</a></li>
+                <li><a href="fed-analysis.html" class="active">Fed Data</a></li>
+                <li><a href="hardship.html">Hardship</a></li>
+                <li><a href="case-study.html">Case Study</a></li>
+                <li><a href="data.html">Data</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);">
+        <div class="container">
+            <h1><i class="fas fa-university"></i> Federal Reserve Manufacturing Data</h1>
+            <p>Comprehensive analysis from FRED, Philadelphia Fed, NY Fed, and regional surveys</p>
+        </div>
+    </section>
+
+    <!-- Key Stats -->
+    <section id="fed-stats">
+        <div class="container">
+            <div class="hero-stats" style="background: var(--bg-light); padding: 2rem; border-radius: 12px;">
+                <div class="hero-stat">
+                    <span class="number">17.9M</span>
+                    <span class="label">Peak Employment (1990)</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">12.6M</span>
+                    <span class="label">Current Employment</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">-29.6%</span>
+                    <span class="label">Jobs Lost from Peak</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="number">75.5%</span>
+                    <span class="label">Capacity Utilization</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Sources Overview -->
+    <section id="sources-overview" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Federal Reserve Data Sources</h2>
+                <p>This analysis integrates data from multiple Federal Reserve sources spanning decades of manufacturing activity.</p>
+            </div>
+
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="icon blue"><i class="fas fa-database"></i></div>
+                    <h3>FRED</h3>
+                    <div class="stat">21 Series</div>
+                    <p>Federal Reserve Economic Data from St. Louis Fed. National and state-level employment, production, and capacity data from 1990-present.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon green"><i class="fas fa-chart-line"></i></div>
+                    <h3>Philadelphia Fed</h3>
+                    <div class="stat">693 Months</div>
+                    <p>Manufacturing Business Outlook Survey covering PA, NJ, DE. The longest-running regional survey, from May 1968 to present.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon orange"><i class="fas fa-building"></i></div>
+                    <h3>NY Fed</h3>
+                    <div class="stat">295 Months</div>
+                    <p>Empire State Manufacturing Survey covering NY, northern NJ, CT. General business conditions from July 2001 to present.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="icon red"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Kansas City Fed</h3>
+                    <div class="stat">432 Months</div>
+                    <p>Manufacturing Survey covering the Tenth District (CO, KS, NE, OK, WY). Focus on energy and agriculture equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- National Employment Analysis -->
+    <section id="national-employment">
+        <div class="container">
+            <div class="section-header">
+                <h2>National Manufacturing Employment</h2>
+                <p>The long decline of American manufacturing employment, with key periods and cumulative job losses.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/fed_national_employment_analysis.jpg" alt="National Manufacturing Employment Analysis">
+            </div>
+
+            <div class="chart-description">
+                <h4>5.3 Million Jobs Lost Since Peak</h4>
+                <p>U.S. manufacturing employment peaked at 17.9 million workers in February 1990. Today, only 12.6 million remain—a decline of nearly 30%. The shaded areas show recession periods, with the Great Recession (2007-2009) causing the steepest single decline.</p>
+            </div>
+
+            <div class="callout callout-danger" style="margin-top: 2rem;">
+                <h3><i class="fas fa-exclamation-triangle"></i> The China Shock (2000-2010)</h3>
+                <p>The decade following China's WTO entry was devastating for American manufacturing. Employment fell 18.2% between 2000 and 2007—<strong>before</strong> the Great Recession even began. Combined with the recession, approximately 5.8 million manufacturing jobs disappeared in a single decade. Research shows regions most exposed to Chinese imports experienced higher unemployment, lower labor force participation, and increased disability claims.</p>
+            </div>
+
+            <div class="two-col" style="margin-top: 2rem;">
+                <div class="info-box">
+                    <h3><i class="fas fa-chart-bar"></i> Employment by Period</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Period</th>
+                                <th>Change</th>
+                                <th>Driver</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1990-2000</td>
+                                <td class="negative">-1.4%</td>
+                                <td>Early automation, NAFTA</td>
+                            </tr>
+                            <tr>
+                                <td>2000-2007</td>
+                                <td class="negative">-18.2%</td>
+                                <td>China WTO, offshoring</td>
+                            </tr>
+                            <tr>
+                                <td>2007-2010</td>
+                                <td class="negative">-16.8%</td>
+                                <td>Great Recession</td>
+                            </tr>
+                            <tr>
+                                <td>2010-2019</td>
+                                <td class="positive">+7.2%</td>
+                                <td>Partial recovery</td>
+                            </tr>
+                            <tr>
+                                <td>2020-Now</td>
+                                <td class="positive">+3.1%</td>
+                                <td>Post-COVID reshoring</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="info-box">
+                    <h3><i class="fas fa-lightbulb"></i> Key Insight</h3>
+                    <p>Manufacturing job losses during recessions have become <strong>permanent</strong>. Unlike previous economic cycles where manufacturing employment recovered, post-2000 recessions resulted in structural job losses that never returned.</p>
+                    <p style="margin-top: 1rem;">Each recovery since 2000 has reached a lower employment peak than the previous one, suggesting the decline is structural rather than cyclical.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rust Belt Analysis -->
+    <section id="rust-belt" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Rust Belt State Analysis</h2>
+                <p>The industrial heartland has borne the brunt of manufacturing decline.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/fed_rust_belt_analysis.jpg" alt="Rust Belt Manufacturing Analysis">
+            </div>
+
+            <div class="chart-description">
+                <h4>1.5 Million Rust Belt Jobs Lost Since 2000</h4>
+                <p>Seven Rust Belt states—Pennsylvania, Ohio, Michigan, Indiana, Illinois, Wisconsin, and West Virginia—have collectively lost over 1.5 million manufacturing jobs since 2000. West Virginia (-45.4%) and Pennsylvania (-41.8%) experienced the steepest declines.</p>
+            </div>
+
+            <div class="callout callout-warning" style="margin-top: 2rem;">
+                <h3><i class="fas fa-map-marked-alt"></i> State-by-State Impact</h3>
+                <div class="two-col" style="margin-top: 1rem;">
+                    <div>
+                        <p><strong>Pennsylvania:</strong> Lost 403,000 manufacturing jobs. Once a steel powerhouse, now struggles with rural decline. Susquehanna County lost 53% of manufacturing jobs.</p>
+                        <p style="margin-top: 0.5rem;"><strong>West Virginia:</strong> Worst percentage decline at -45.4%. Combined with coal collapse, the state has few remaining industrial employers.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Illinois:</strong> Lost 358,000 jobs (-38.7%). Chicago-area manufacturing devastated; Caterpillar and heavy equipment declines.</p>
+                    </div>
+                    <div>
+                        <p><strong>Ohio:</strong> Lost 351,000 jobs (-33.7%). Cleveland, Toledo, Youngstown hit hard. Some recovery with Honda and auto parts suppliers.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Michigan:</strong> Lost 213,000 jobs (-26.3%). Auto industry restructuring; Detroit's decline symbolic of broader trends.</p>
+                        <p style="margin-top: 0.5rem;"><strong>Indiana & Wisconsin:</strong> Fared better (-14% and -12%) due to diversified manufacturing base and auto transplants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philadelphia Fed Analysis -->
+    <section id="philly-fed">
+        <div class="container">
+            <div class="section-header">
+                <h2>Philadelphia Fed Manufacturing Survey</h2>
+                <p>55+ years of manufacturing sentiment data from America's oldest regional Fed survey.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/fed_philly_analysis.jpg" alt="Philadelphia Fed Manufacturing Survey Analysis">
+            </div>
+
+            <div class="chart-description">
+                <h4>The 2020s: Weakest Decade on Record</h4>
+                <p>The Philadelphia Fed's General Activity Index measures whether manufacturers are expanding or contracting. Positive readings indicate expansion; negative readings indicate contraction. The 2020s have averaged -0.9, with only 48% of months showing expansion—the weakest performance in the survey's 55+ year history.</p>
+            </div>
+
+            <div class="two-col" style="margin-top: 2rem;">
+                <div class="info-box">
+                    <h3><i class="fas fa-calendar-alt"></i> Performance by Decade</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Decade</th>
+                                <th>Avg Index</th>
+                                <th>% Expanding</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1970s</td>
+                                <td class="positive">+7.2</td>
+                                <td>62%</td>
+                            </tr>
+                            <tr>
+                                <td>1980s</td>
+                                <td class="positive">+5.8</td>
+                                <td>58%</td>
+                            </tr>
+                            <tr>
+                                <td>1990s</td>
+                                <td class="positive">+11.4</td>
+                                <td>68%</td>
+                            </tr>
+                            <tr>
+                                <td>2000s</td>
+                                <td class="positive">+3.1</td>
+                                <td>51%</td>
+                            </tr>
+                            <tr>
+                                <td>2010s</td>
+                                <td class="positive">+8.7</td>
+                                <td>64%</td>
+                            </tr>
+                            <tr>
+                                <td>2020s</td>
+                                <td class="negative">-0.9</td>
+                                <td>48%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="info-box">
+                    <h3><i class="fas fa-info-circle"></i> How to Read This Data</h3>
+                    <p><strong>Diffusion Index:</strong> Calculated as % of firms reporting increase minus % reporting decrease. Ranges from -100 to +100.</p>
+                    <p style="margin-top: 0.5rem;"><strong>Above 0:</strong> More firms expanding than contracting (growth)</p>
+                    <p style="margin-top: 0.5rem;"><strong>Below 0:</strong> More firms contracting than expanding (decline)</p>
+                    <p style="margin-top: 0.5rem;"><strong>Why it matters:</strong> Regional Fed surveys are leading indicators, released before national data. Persistent negative readings signal weak manufacturing conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capacity and Production -->
+    <section id="capacity" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Capacity Utilization & Production</h2>
+                <p>The paradox of rising production with falling employment.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/fed_capacity_production.jpg" alt="Capacity Utilization and Industrial Production">
+            </div>
+
+            <div class="chart-description">
+                <h4>The Productivity Paradox</h4>
+                <p>One of the most striking findings: industrial production has grown 65% since 1990 even as employment has fallen 30%. This means fewer workers are producing more goods than ever before. The divergence reflects massive productivity gains through automation, robotics, and technology—not sector collapse.</p>
+            </div>
+
+            <div class="callout callout-primary" style="margin-top: 2rem;">
+                <h3><i class="fas fa-robot"></i> What This Means</h3>
+                <div class="two-col" style="margin-top: 1rem;">
+                    <div>
+                        <h4>Capacity Utilization at 75.5%</h4>
+                        <ul>
+                            <li>Below historical average of 77.2%</li>
+                            <li>Indicates slack in the system</li>
+                            <li>Firms don't need to expand capacity</li>
+                            <li>Limited pricing power for manufacturers</li>
+                            <li>Weak incentive for new hiring</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Employment vs. Production Divergence</h4>
+                        <ul>
+                            <li>Automation replaced routine manual work</li>
+                            <li>Remaining jobs require higher skills</li>
+                            <li>Capital investment substitutes for labor</li>
+                            <li>New factories employ far fewer workers</li>
+                            <li>Trend will accelerate with AI/robotics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Fed Comparison -->
+    <section id="regional-comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2>Regional Federal Reserve Comparison</h2>
+                <p>Comparing manufacturing sentiment across multiple Fed districts.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/fed_regional_comparison.jpg" alt="Regional Federal Reserve Manufacturing Survey Comparison">
+            </div>
+
+            <div class="chart-description">
+                <h4>Regional Surveys Move Together</h4>
+                <p>The Philadelphia Fed, NY Fed (Empire State), and Kansas City Fed surveys generally move in tandem, reflecting national manufacturing conditions. However, regional differences emerge: the Kansas City Fed region (energy, agriculture equipment) sometimes diverges from the Rust Belt-focused Philadelphia and NY Fed surveys.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comprehensive Summary -->
+    <section id="summary" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Summary</h2>
+                <p>All key Federal Reserve manufacturing indicators in one view.</p>
+            </div>
+
+            <div class="chart-container">
+                <img loading="lazy" src="images/fed_comprehensive_summary.jpg" alt="Federal Reserve Manufacturing Data Comprehensive Summary">
+            </div>
+
+            <div class="chart-description">
+                <h4>The Complete Federal Reserve Picture</h4>
+                <p>This dashboard brings together national employment trends, Rust Belt state declines, regional Fed survey readings, capacity utilization, and the productivity paradox. The data tells a consistent story: structural manufacturing decline concentrated in the industrial heartland, with automation enabling higher output from fewer workers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusions -->
+    <section id="conclusions" class="case-study-conclusion">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">Key Conclusions</h2>
+            </div>
+
+            <div class="info-box" style="background: rgba(255,255,255,0.1); border: none; color: white;">
+                <div class="two-col">
+                    <div>
+                        <h4>What the Data Shows</h4>
+                        <ul style="line-height: 2;">
+                            <li><strong>Structural decline:</strong> Jobs lost don't return after recessions</li>
+                            <li><strong>Geographic concentration:</strong> Rust Belt lost 40-45% of mfg jobs</li>
+                            <li><strong>Productivity gains:</strong> Output up while employment down</li>
+                            <li><strong>Weak surveys:</strong> 2020s weakest decade in 55+ years</li>
+                            <li><strong>Low capacity:</strong> 75.5% vs 77.2% historical average</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Policy Implications</h4>
+                        <ul style="line-height: 2;">
+                            <li><strong>Job training:</strong> Workers need skills for new industries</li>
+                            <li><strong>Infrastructure:</strong> Modernization could attract investment</li>
+                            <li><strong>Education:</strong> STEM critical for advanced manufacturing</li>
+                            <li><strong>Regional policy:</strong> Place-based interventions needed</li>
+                            <li><strong>Realistic expectations:</strong> New factories employ fewer workers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="data.html" class="btn btn-light">
+                    <i class="fas fa-download"></i> Download the Data
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>The True Cost of Deindustrialization</strong></p>
+            <p>A comprehensive county-level analysis of manufacturing decline and economic wellbeing</p>
+            <p style="margin-top: 1rem;">
+                <a href="index.html">Home</a> ·
+                <a href="analysis.html">Analysis</a> ·
+                <a href="fed-analysis.html">Fed Data</a> ·
+                <a href="hardship.html">Hardship</a> ·
+                <a href="case-study.html">Case Study</a> ·
+                <a href="data.html">Data</a>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">
+                Data sources: FRED (St. Louis Fed), Philadelphia Fed Manufacturing Survey, NY Fed Empire State Survey, Kansas City Fed<br>
+                Analysis completed February 2026
+            </p>
+        </div>
+    </footer>
+
+    <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.scroll-top');
+            if (window.scrollY > 500) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
